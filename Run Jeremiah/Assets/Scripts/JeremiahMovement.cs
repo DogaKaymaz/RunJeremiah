@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,66 +6,73 @@ using UnityEngine.EventSystems;
 
 public class JeremiahMovement : MonoBehaviour
 {
-    private Camera gameCamera;
-    private float
-        minX,
-        maxX,
-        minY,
-        maxY;
+    [Header("Player Movement")]
+    [SerializeField] private float jumpForce = 1f;
+    [SerializeField] private float movementSpeed = 1f;
 
-    private float
-        changePosX,
-        changePosY;
+    private bool jumpButtonTaken;
+    Rigidbody2D rb;
 
     private Animator animatorJeremiah;
-    
-    [Header("Player Movement")]
-    [SerializeField] private float paddingX = 1f;
-    [SerializeField] private float paddingY = 2f;
-    [SerializeField] private float moveSpeed;
 
     private void Awake()
     {
-        gameCamera = Camera.main;
-        SetUpTheBoundaries();
         animatorJeremiah = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
-    
-    void Update()
+
+    private void Update()
     {
         Move();
+        TakeJumpButton();
+        Jump();
     }
-    
-    void Move()
-    {
-        var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
-        var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
 
-        if (deltaX != 0)
+    private void Move()
+    {
+        var movement = Input.GetAxis("Horizontal");
+
+        if (!Mathf.Approximately(0, movement))
+        {
+            transform.rotation = movement < 0 ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
+        }
+        
+        if (movement != 0f)
         {
             animatorJeremiah.SetFloat("atAction", 1f, 0.1f, Time.deltaTime);
-            changePosX = Mathf.Clamp(transform.position.x + deltaX, minX, maxX);
         }
         else
         {
             animatorJeremiah.SetFloat("atAction", 0f, 0.1f, Time.deltaTime);
+   
         }
-
-        if (deltaY != 0)
-        {
-            changePosY = Mathf.Clamp(transform.position.y + deltaY, minY, maxY);
-        }
-        
-
-        transform.position = new Vector2(changePosX, changePosY);
+        transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * movementSpeed;
     }
-    
-    void SetUpTheBoundaries()
-    {
-        minX = gameCamera.ViewportToWorldPoint(new Vector3(0,0,0)).x + paddingX;
-        maxX = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - paddingX;
 
-        minY = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + paddingY;
-        maxY = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - paddingY;
+    private void Jump()
+    {
+        if ( jumpButtonTaken && Mathf.Abs(rb.velocity.y) < 0.001f)
+        {
+            jumpButtonTaken = false;
+            rb.AddForce(new Vector2(0,jumpForce),ForceMode2D.Impulse);
+        }
+        else
+        {
+            jumpButtonTaken = false;
+        }
+    }
+
+    private void TakeJumpButton()
+    {
+        if(Input.GetKeyDown(KeyCode.Space) || 
+           Input.GetKeyDown(KeyCode.W) || 
+           Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            jumpButtonTaken = true;
+        }
+        else
+        {
+            jumpButtonTaken = false;
+        }
     }
 }
