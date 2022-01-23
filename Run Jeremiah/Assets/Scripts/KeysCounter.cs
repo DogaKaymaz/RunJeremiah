@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class KeysCounter : MonoBehaviour
 {
    public TextMeshProUGUI counterText;
-   private float counter;
+   public float counter;
 
    private void Awake()
    {
@@ -25,6 +25,11 @@ public class KeysCounter : MonoBehaviour
    {
       counter += 1;
       Debug.Log("Increased.");
+   }
+
+   public float GetCounter()
+   {
+      return counter;
    }
    
    
