@@ -8,7 +8,8 @@ public class EscManagement : MonoBehaviour
     [SerializeField] private GameObject escMenu;
     [SerializeField] private Animator animatorBalloons;
     private bool showEscBool;
-    private void Awake()
+   
+    private void Start()
     {
         showEscBool = false;
         escMenu.SetActive(showEscBool);
@@ -26,28 +27,28 @@ public class EscManagement : MonoBehaviour
             animatorBalloons.SetFloat("balloons", 1f);
             showEscBool = !showEscBool;
             escMenu.SetActive(showEscBool);
-            // PauseOrResume(showEscBool);
+            PauseOrResume(showEscBool);
             yield return new WaitForSeconds(animatorBalloons.GetCurrentAnimatorStateInfo(0).length +
                                        animatorBalloons.GetCurrentAnimatorStateInfo(0).normalizedTime);
             animatorBalloons.SetFloat("balloons", 0.5f);
         }
     }
 
-    public void DisableCanvas()
-    {
-        escMenu.SetActive(!showEscBool);
-    }
-    
-    
-    // void PauseOrResume(bool pause)
+    // public void DisableCanvas()
     // {
-    //     if (pause)
-    //     {
-    //         Time.timeScale = 0f;
-    //     }
-    //     else
-    //     {
-    //         Time.timeScale = 1f;
-    //     }
+    //     escMenu.SetActive(!showEscBool);
     // }
+    //
+    
+    void PauseOrResume(bool pause)
+    {
+        if (pause)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
+    }
 }
