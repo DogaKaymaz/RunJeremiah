@@ -64,7 +64,7 @@ public class JeremiahMovement : MonoBehaviour
 
     private void Jump()
     {
-        if ( jumpButtonTaken && Mathf.Abs(rb.velocity.y) < 0.001f)
+        if ( jumpButtonTaken && Mathf.Abs(rb.velocity.y) < 0.1f)
         {
             jumpButtonTaken = false;
             rb.AddForce(new Vector2(0,jumpForce),ForceMode2D.Impulse);

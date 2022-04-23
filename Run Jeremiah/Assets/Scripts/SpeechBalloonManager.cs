@@ -22,13 +22,13 @@ public class SpeechBalloonManager : MonoBehaviour
     
     [Header("Speech Balloon")]
     [SerializeField] private SpeechBalloonDesign startingTutorial;
-    [SerializeField] private GameObject characterExitObject;
-    [SerializeField] private GameObject characterEnterObject;
+    // [SerializeField] private GameObject characterExitObject;
+    // [SerializeField] private GameObject characterEnterObject;
     [SerializeField] private Animator animatorBalloon;
     private SpeechBalloonDesign tutorial;
     
     [Header("Tutorial Canvas")]
-    [SerializeField] private Canvas tutorialCanvas;
+    [SerializeField] private GameObject tutorialCanvas;
     private bool showCanvasBool;
   
     // [Header("Jeremiah")]
@@ -59,7 +59,6 @@ public class SpeechBalloonManager : MonoBehaviour
     {
         ManageTutorial();
         ShowTutorial();
-        EscControl();
     }
 
     private void ShowTutorial()
@@ -70,13 +69,6 @@ public class SpeechBalloonManager : MonoBehaviour
         }
     }
 
-    private void EscControl()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape) && showCanvasBool)
-        {
-            
-        }
-    }
 
     public void TutorialPage()
     {
