@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using DG.Tweening;
@@ -12,8 +13,7 @@ public class PlatformRotation : MonoBehaviour
  
     private Vector3 startingPosition;
     
-   [SerializeField] private List<GameObject> wayPointsObjects;
-   private List<Vector3> wayPointsList;
+   [SerializeField] private List<Transform> wayPointsTransforms;
    private Vector3[] wayPoints;
 
     private void Awake()
@@ -29,12 +29,7 @@ public class PlatformRotation : MonoBehaviour
 
     void GetWayPoints()
     {
-        foreach ( var wayPoint in wayPointsObjects)
-        {
-            wayPointsList.Add(wayPoint.transform.position);
-        }
-
-        wayPoints = wayPointsList.ToArray();
+        wayPoints = wayPointsTransforms.Select(wayPoint => wayPoint.transform.position).ToArray();
     }
 
     void RotatePlatform()
@@ -43,10 +38,5 @@ public class PlatformRotation : MonoBehaviour
             transform.DOPath(wayPoints, loopDuration, PathType.CatmullRom);
     }
 
-    // void TurnBack()
-    // {
-    //     chosenTransform.DORotateQuaternion(startingPosition, loopDuration);
-    //      chosenTransform.DOMove(startingPosition, loopDuration);
-    // }
-    //
+   
 }
