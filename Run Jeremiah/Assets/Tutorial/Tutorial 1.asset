@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf83cbba5563c94293c4f9454ecffda, type: 3}
   m_Name: Tutorial 1
   m_EditorClassIdentifier: 
-  balloonVector3: {x: 0, y: 0, z: 0}
-  speechBalloon: {fileID: 21300000, guid: 6043d7ba011ef224ab888ddcd90b4cbf, type: 3}
   speechBalloonText: This Shows Number of Keys You Collected.
   nextSpeechBalloon:
   - {fileID: 11400000, guid: 26b168b7d8514cd41b5cc72f325bf1a4, type: 2}
+  speechBalloonHeadText: "t\u0131p 1"
+  nextSpeechBalloonHeader: []

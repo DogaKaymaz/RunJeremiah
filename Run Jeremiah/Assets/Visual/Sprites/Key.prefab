@@ -119,6 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f20c93a73307fd14597880fdcd35b54f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyPS: {fileID: 4783387456765155532, guid: bca7f2a67b0ff0d4cbb0933241a44fff, type: 3}
+  keySound: {fileID: 8300000, guid: 0555905a623ccec40a557504253d3c14, type: 3}
 --- !u!70 &6334846802490739997
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -18,3 +18,5 @@ MonoBehaviour:
     to Skip Next Tip.'
   nextSpeechBalloon:
   - {fileID: 11400000, guid: 0311eb05117c07247a903d89e7b48dc7, type: 2}
+  speechBalloonHeadText: tutorial
+  nextSpeechBalloonHeader: []

@@ -22,6 +22,8 @@ public class JeremiahMovement : MonoBehaviour
     private float vertical;
     [SerializeField] private float climbingSpeed = 8f;
 
+    [Header("Audio")] [SerializeField] private AudioClip jumpSound;
+    
     private void Awake()
     {
         animatorJeremiah = GetComponent<Animator>();
@@ -68,6 +70,7 @@ public class JeremiahMovement : MonoBehaviour
         {
             jumpButtonTaken = false;
             rb.AddForce(new Vector2(0,jumpForce),ForceMode2D.Impulse);
+            AudioSource.PlayClipAtPoint(jumpSound, Camera.main.transform.position);
         }
         else
         {

@@ -19,7 +19,7 @@ public class DoorMechanic : MonoBehaviour
     {
         levelInfoScript = GameObject.Find("LevelInfo").GetComponent<LevelInformation>();
         keysCounterScript = GameObject.Find("Canvas").GetComponentInChildren<KeysCounter>();
-        doorText = GameObject.Find("DoorText").GetComponent<TextMeshProUGUI>();
+        doorText = GameObject.Find("CanvasText").GetComponent<TextMeshProUGUI>();
         animatorDoor = GetComponentInChildren<Animator>();
     }
 

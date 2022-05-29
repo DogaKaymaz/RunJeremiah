@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class EscManagement : MonoBehaviour
 { 
-    [SerializeField] private GameObject escMenu;
+    [SerializeField] public GameObject escMenu;
     [SerializeField] private Animator animatorBalloons;
     private bool showEscBool;
+    [SerializeField] private AudioClip tabSound;
    
     private void Start()
     {
@@ -17,34 +18,30 @@ public class EscManagement : MonoBehaviour
 
     private void Update()
     {
-        StartCoroutine(OpenESCMenu());
-    }
-
-    private IEnumerator OpenESCMenu()
-    {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            animatorBalloons.SetFloat("balloons", 1f);
-            showEscBool = !showEscBool;
-            escMenu.SetActive(showEscBool);
-            PauseOrResume(showEscBool);
-            yield return new WaitForSeconds(animatorBalloons.GetCurrentAnimatorStateInfo(0).length +
-                                       animatorBalloons.GetCurrentAnimatorStateInfo(0).normalizedTime);
-            animatorBalloons.SetFloat("balloons", 0.5f);
+            StartCoroutine(ChangeESCMenuStatus());
         }
     }
 
-    // public void DisableCanvas()
-    // {
-    //     escMenu.SetActive(!showEscBool);
-    // }
-    //
+    public IEnumerator ChangeESCMenuStatus()
+    {
+        animatorBalloons.SetFloat("balloons", 1f); 
+        showEscBool = !showEscBool; 
+        escMenu.SetActive(showEscBool); 
+        PauseTime(showEscBool); 
+        yield return new WaitForSeconds(animatorBalloons.GetCurrentAnimatorStateInfo(0).length +
+                                                                animatorBalloons.GetCurrentAnimatorStateInfo(0).normalizedTime); 
+        animatorBalloons.SetFloat("balloons", 0.5f);
+        }
     
-    void PauseOrResume(bool pause)
+    
+    void PauseTime(bool pause)
     {
         if (pause)
         {
             Time.timeScale = 0f;
+            AudioSource.PlayClipAtPoint(tabSound, Camera.main.transform.position);
         }
         else
         {

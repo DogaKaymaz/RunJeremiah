@@ -121,8 +121,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1377868253824037178}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c732624b1e04a34db2977051a74982f, type: 3}
+  m_Script: {fileID: 11500000, guid: adf30da9df7eea240b7f37438a6929ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveDistance: {x: 0, y: 10, z: 0}
-  movingTime: 2
+  loopDuration: 2

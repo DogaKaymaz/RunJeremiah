@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf83cbba5563c94293c4f9454ecffda, type: 3}
   m_Name: Tutorial 2
   m_EditorClassIdentifier: 
-  balloonVector3: {x: 0, y: 0, z: 0}
-  speechBalloon: {fileID: 21300000, guid: 6043d7ba011ef224ab888ddcd90b4cbf, type: 3}
   speechBalloonText: This is Your Energy Bar. It Limits Number of Your Jumps. Every
     Jump Costs One Point Energy.
   nextSpeechBalloon:
   - {fileID: 11400000, guid: 3e2e9854bf22fc44ba787fd3ff6c0a3c, type: 2}
+  speechBalloonHeadText: "t\u0131p 2"
+  nextSpeechBalloonHeader: []

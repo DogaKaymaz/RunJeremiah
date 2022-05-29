@@ -15,3 +15,5 @@ MonoBehaviour:
   speechBalloonText: Number Four
   nextSpeechBalloon:
   - {fileID: 11400000, guid: f771972455981444e968b09969aa4b0c, type: 2}
+  speechBalloonHeadText: "t\u0131p 4"
+  nextSpeechBalloonHeader: []

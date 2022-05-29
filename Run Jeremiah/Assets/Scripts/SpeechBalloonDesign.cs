@@ -13,14 +13,22 @@ public class SpeechBalloonDesign : ScriptableObject
 {
     [TextArea(5,10)] [SerializeField] private string speechBalloonText;
     [SerializeField] private SpeechBalloonDesign[] nextSpeechBalloon;
+    [SerializeField] private string speechBalloonHeadText;
     
     public string GetSpeechBalloonText()
     {
         return speechBalloonText;
     }
+    
+    public string GetSpeechBalloonHeadText()
+    {
+        return speechBalloonHeadText;
+    }
+
 
     public SpeechBalloonDesign[] GetNextSpeechBalloon()
     {
         return nextSpeechBalloon;
     }
+    
 }

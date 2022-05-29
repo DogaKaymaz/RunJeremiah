@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf83cbba5563c94293c4f9454ecffda, type: 3}
   m_Name: Tutorial 6
   m_EditorClassIdentifier: 
-  speechBalloon: {fileID: 0}
   speechBalloonText: 
   nextSpeechBalloon: []
+  speechBalloonHeadText: "t\u0131p 6"
+  nextSpeechBalloonHeader: []
