@@ -14,7 +14,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -50,9 +50,9 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7190742056828885902}
   m_Tag: 
-  m_SpeedParameter: 
+  m_SpeedParameter: balloons
   m_MirrorParameter: 
-  m_CycleOffsetParameter: 
+  m_CycleOffsetParameter: balloons
   m_TimeParameter: 
 --- !u!206 &7190742056828885902
 BlendTree:
@@ -96,7 +96,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 6546164859555044672}
-    m_Position: {x: 270, y: 110, z: 0}
+    m_Position: {x: 280, y: 110, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
