@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf83cbba5563c94293c4f9454ecffda, type: 3}
   m_Name: Tutorial 3
   m_EditorClassIdentifier: 
-  speechBalloonText: Number Three
+  speechBalloonText: If you want to go back to main menu or settings, you can use
+    ESC button.
   nextSpeechBalloon:
   - {fileID: 11400000, guid: da01bd12919aa374bbbdbcffb43d1cc4, type: 2}
   speechBalloonHeadText: "t\u0131p 3"
-  nextSpeechBalloonHeader: []

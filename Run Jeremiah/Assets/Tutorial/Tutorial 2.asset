@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf83cbba5563c94293c4f9454ecffda, type: 3}
   m_Name: Tutorial 2
   m_EditorClassIdentifier: 
-  speechBalloonText: This is Your Energy Bar. It Limits Number of Your Jumps. Every
-    Jump Costs One Point Energy.
+  speechBalloonText: All items you have will be in your bag. There is a limit of
+    slots, so be sure of you are using and delivering items.
   nextSpeechBalloon:
   - {fileID: 11400000, guid: 3e2e9854bf22fc44ba787fd3ff6c0a3c, type: 2}
   speechBalloonHeadText: "t\u0131p 2"
-  nextSpeechBalloonHeader: []
